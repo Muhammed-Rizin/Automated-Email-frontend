@@ -1,0 +1,33 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<section *ngIf="!loading">
+    <app-side-bar></app-side-bar>
+    <div class="content">
+        <div class="templates">
+            <h2>Templates</h2>
+            <div class="row">
+                <ng-container *ngFor="let template of templates">
+                    <div class="template" (click)="viewTemplate(template._id)">
+                        <div class="head">
+                            <p>{{template.title}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div class="email-history">
+            <h2>Email History</h2>
+            <p>Total Emails Sent: {{ emails.length }}</p>
+            <div class="row">
+                <ng-container *ngFor="let template of emails.slice(0, 3)">
+                    <div class="template" >
+                        <div class="head">
+                            <p>{{template.title}}</p>
+                        </div>
+                        <p>{{template.to}}</p>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+
+    </div>
+</section>

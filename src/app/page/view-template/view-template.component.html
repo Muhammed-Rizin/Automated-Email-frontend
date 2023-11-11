@@ -1,0 +1,32 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<section *ngIf="!loading">
+    <app-side-bar></app-side-bar>
+    <div class="content">
+        <p *ngIf="error">already email</p>
+        <button routerLink="/template" class="back-button"  *ngIf="!template.isDeleted" >Back</button>
+        <button routerLink="/trash" class="back-button"  *ngIf="template.isDeleted" >Back</button>
+        <div class="row">
+            <div class="template">
+                <div class="head">
+                    <p>{{template.title}}</p>
+                    <button class="delete-template" *ngIf="!template.isDeleted" (click)="deleteTemplate(template._id)">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                    <div class="delete" *ngIf="template.isDeleted">
+                        <button class="delete-template" (click)="permanentlyDeleteTemplate(template._id)">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                        <button class="delete-template" (click)="recoverTemplate(template._id)">
+                            <i class="fa fa-undo" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <p>{{template.content}}</p>
+            </div>
+            <div class="send" *ngIf="!template.isDeleted">
+                <input type="text" class="to" placeholder="To email" [(ngModel)]="to">
+                <button class="send-button" (click)="sendEmail()">send</button>
+            </div>
+        </div>
+    </div>
+</section>

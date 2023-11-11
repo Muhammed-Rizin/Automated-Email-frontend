@@ -1,0 +1,94 @@
+section {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+app-side-bar {
+    background-color: #333;
+    color: white;
+    height: 100vh;
+}
+
+.content {
+    flex: 1;
+    padding: 3rem 0 0 1.5rem;
+    background-color: #f4f4f4;
+    height: 100vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.new-button {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, transform 0.2s ease-in-out;
+}
+
+.new-button:hover {
+    background: #fff;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.template {
+    width: fit-content;
+    margin: 1rem 0.5rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    transition: background 0.3s, transform 0.2s ease-in-out;
+
+}
+
+.template:hover {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete-template {
+    border: none;
+    outline: none;
+    width: fit-content;
+    font-size: 36px;
+}
+
+.delete-template:hover {
+    transform: scale(1.1);
+    color: red;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        padding: 0.5rem;
+    }
+
+    .new-button {
+        margin: 1rem 0;
+    }
+
+    .template {
+        font-size: 0.9rem;
+    }
+
+    .delete-template {
+        font-size: 18px;
+    }
+}

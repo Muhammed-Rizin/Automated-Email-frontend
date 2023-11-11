@@ -1,0 +1,22 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<section *ngIf="!loading">
+    <app-side-bar></app-side-bar>
+    <div class="content">
+        <div class="row" *ngIf="templates.length">
+            <ng-container *ngFor="let template of templates">
+                <div class="template" (click)="viewTemplate(template._id)">
+                    <div class="head">
+                        <p>{{template.title}}</p>
+                        
+                    </div>
+                    <p>{{template.content}}</p>
+                </div>
+            </ng-container>
+        </div>
+        <ng-container *ngIf="!templates.length">
+            <div class="empty-state">
+                <p>No templates available.</p>
+            </div>
+        </ng-container>
+    </div>
+</section>

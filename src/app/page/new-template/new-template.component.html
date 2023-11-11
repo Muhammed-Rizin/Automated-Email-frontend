@@ -1,0 +1,16 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<section *ngIf="!loading">
+    <app-side-bar></app-side-bar>
+    <div class="content">
+        <form  [formGroup]="newTemplateForm" (submit)="submit()">
+            <div class="template">
+                <!-- <label for="title">Heading</label> -->
+                <input class="title_input" type="text" formControlName="title" name="title">
+                <!-- <label for="content">Body</label> -->
+                <textarea class="content_input" formControlName="content" name="content"></textarea>
+                <!-- <input class="resume" type="file" formControlName="resume"  name="resume" id="resume"  accept=".pdf"> -->
+            </div>
+            <button type="submit" class="save_button">Save</button>
+        </form>
+    </div>
+</section>
